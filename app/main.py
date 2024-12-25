@@ -9,7 +9,7 @@ def main():
         sys.exit(0)
         
     elif command.startswith("echo"):
-        sys.stdout.write(command[5:]"/n")
+        sys.stdout.write(command[5:],"/n")
         sys.stdout.write("$ ")
         
     else:
