@@ -7,10 +7,11 @@ def main():
     while command:    
         if command == "exit 0":
             sys.exit(0)
-            
+            break
         elif command.startswith("echo"):
             sys.stdout.write(command[5:])
             sys.stdout.write("\n$ ")
+            continue
         else:
             sys.stdout.write(f"{command} : command not found")
             sys.stdout.write("\n$ ")
