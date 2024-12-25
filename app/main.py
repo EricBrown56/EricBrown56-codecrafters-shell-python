@@ -14,7 +14,7 @@ def main():
         for path in paths:
             if os.path.exists(f"{path}/{command}"):
                 command_path = f"{path}/{command}"
-        print(paths)        
+        #print(paths)        
             
         if command == "exit 0":
             sys.exit(0)
