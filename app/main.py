@@ -2,7 +2,7 @@ import sys
 
 
 def main():
-    
+    sys.stdout.write("$ ")
     command = input()
     while command:  
         sys.stdout.write("$ ")  
