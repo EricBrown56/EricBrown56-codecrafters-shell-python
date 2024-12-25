@@ -17,7 +17,7 @@ def main():
             else:
                 sys.stdout.write(f"{command[5:]}: not found\n")
                 break
-        #print(paths)        
+        print(paths)        
             
         if command == "exit 0":
             sys.exit(0)
