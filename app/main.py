@@ -10,7 +10,7 @@ def main():
         sys.stdout.flush()
         command = input() 
         command_path = None
-        paths = PATH.split(";")
+        paths = PATH.split(":")
         for path in paths:
             if os.path.exists(f"{path}/{command}"):
                 command_path = f"{path}/{command}"
