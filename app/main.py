@@ -9,8 +9,8 @@ def main():
             break
         
         sys.stdout.write("$ ")
-    if command == "echo <text>":
-        sys.stdout.write("<text>\n")
+    if command.startswith("echo"):
+        sys.stdout.write(command[5:])
         
 
     
