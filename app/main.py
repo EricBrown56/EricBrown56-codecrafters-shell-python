@@ -2,6 +2,7 @@ import sys
 
 
 def main():
+    builtins = ["exit", "echo", "type"]
     while True:
         sys.stdout.write("$ ")
         sys.stdout.flush()
@@ -14,7 +15,7 @@ def main():
             sys.stdout.write(command[5:] + "\n") 
 
         elif command.startswith("type"):
-            if command[5:] in sys.builtin_module_names:
+            if command[5:] in builtins:
                 sys.stdout.write(f"{command[5:]} is a shell builtin\n")
             else:
                 sys.stdout.write(f"{command[5:]}: not found\n")    
