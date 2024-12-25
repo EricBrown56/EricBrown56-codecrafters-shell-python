@@ -14,10 +14,10 @@ def main():
             sys.stdout.write(command[5:] + "\n") 
 
         elif command.startswith("type"):
-            if command[:5] in sys.builtin_module_names:
-                sys.stdout.write(f"{command[:5]} is a shell builtin\n")
+            if command[5:] in sys.builtin_module_names:
+                sys.stdout.write(f"{command[5:]} is a shell builtin\n")
             else:
-                sys.stdout.write(f"{command[:5]}: not found\n")    
+                sys.stdout.write(f"{command[5:]}: not found\n")    
             
         else:
             sys.stdout.write(f"{command}: command not found\n")
