@@ -14,6 +14,8 @@ def main():
         for path in paths:
             if os.path.exists(f"{path}/{command}"):
                 command_path = f"{path}/{command}"
+            else:
+                sys.stdout.write(f"{command}: not found\n")
         #print(paths)        
             
         if command == "exit 0":
