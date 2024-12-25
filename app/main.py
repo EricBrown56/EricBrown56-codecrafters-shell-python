@@ -13,7 +13,7 @@ def main():
             break
         else:
             sys.stdout.write(f"{command} : command not found")
-        sys.stdout.write("$ ")
+        print("$ ")
         
 
     
