@@ -3,7 +3,7 @@ import sys
 
 def main():
     sys.stdout.write("$ ")
-    input("$ ")
+    input()
 
     
 if __name__ == "__main__":
