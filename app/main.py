@@ -11,7 +11,7 @@ def main():
         elif command.startswith("echo"):
             sys.stdout.write(command[5:])
             sys.stdout.write("\n$ ")
-            continue
+            break
         else:
             sys.stdout.write(f"{command} : command not found")
             sys.stdout.write("\n$ ")
