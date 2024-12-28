@@ -19,6 +19,10 @@ def main():
             sys.stdout.write(command[5:] + "\n")
             continue
 
+        elif command.startswith("pwd"):
+            sys.stdout.write(f"{os.getcwd()}\n")
+            continue
+
         # Extract the command after "type"
         if command.startswith("type"):
             cmd = command.split(" ", 1)[1]  # Extract the command name
@@ -54,6 +58,7 @@ def main():
         else:
             sys.stdout.write(f"{command.split()[0]}: command not found\n")
             continue
+        
         
        
         
