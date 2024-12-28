@@ -50,11 +50,19 @@ def main():
         # Handle the "cd" command
         if command.startswith("cd"):
             try:
-                os.chdir(command.split()[1])
+                
+                target_dir = command.split()[1] if len(command.split()) > 1 else "~"
+
+                # Handle "cd ~"
+                if target_dir == "~":
+                    target_dir = os.path.expanduser("~")
+
+                # Change to the specified directory
+                os.chdir(target_dir)
             except FileNotFoundError:
                 sys.stdout.write(f"cd: {command.split()[1]}: No such file or directory\n")
             continue
-        
+
         # Handle running commands
 
         PATH = os.environ.get("PATH")
