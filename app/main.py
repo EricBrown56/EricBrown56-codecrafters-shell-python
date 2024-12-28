@@ -47,6 +47,14 @@ def main():
                 sys.stdout.write(f"{cmd}: not found\n")
             continue
         
+        # Handle the "cd" command
+        if command.startswith("cd"):
+            try:
+                os.chdir(command.split()[1])
+            except FileNotFoundError:
+                sys.stdout.write(f"cd: {command.split()[1]}: No such file or directory\n")
+            continue
+        
         # Handle running commands
 
         PATH = os.environ.get("PATH")
