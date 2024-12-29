@@ -3,6 +3,13 @@ import os
 import subprocess
 import shlex
 
+def findexecutable(command):
+    paths = os.getenv("PATH", "").split(os.pathsep)
+    for path in paths:
+        excecutablePath = os.path.join(path, command)
+        if os.path.isfile(excecutablePath):
+            return excecutablePath
+
 def main():
     while True:
         sys.stdout.write("$ ")
@@ -68,6 +75,15 @@ def main():
                 os.chdir(target_dir)
             except FileNotFoundError:
                 sys.stdout.write(f"cd: {command.split()[1]}: No such file or directory\n")
+            continue
+        
+        args = shlex.split(command)
+        executablePath = findexecutable(args[0])
+        if executablePath:
+            try:
+                subprocess.run(args)
+            except FileNotFoundError:
+                sys.stdout.write(f"{args[0]}: command not found\n")
             continue
 
         # Handle running commands
