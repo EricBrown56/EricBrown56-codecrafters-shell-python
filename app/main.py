@@ -1,5 +1,7 @@
 import sys
 import os
+import subprocess
+import shlex
 
 def main():
     while True:
@@ -16,7 +18,11 @@ def main():
             
         
         elif command.startswith("echo"):
-            sys.stdout.write(command[5:] + "\n")
+            if command.startswith("'") or command.startswith('"') and command.endswith("'") or command.endswith('"'):
+                sys.stdout.write(f"{command[6:-1]}\n")
+            else:
+                parts = shlex.split(command[5:])
+                sys.stdout.write(" ".join(parts) + "\n")
             continue
 
         elif command.startswith("pwd"):
