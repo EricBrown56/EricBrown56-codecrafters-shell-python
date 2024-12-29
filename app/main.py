@@ -18,11 +18,12 @@ def main():
             
         
         elif command.startswith("echo"):
-            if command.startswith("'") or command.startswith('"') and command.endswith("'") or command.endswith('"'):
-                sys.stdout.write(f"{command[6:-1]}\n")
-            else:
-                parts = shlex.split(command[5:])
-                sys.stdout.write(" ".join(parts) + "\n")
+        
+            # Remove 'echo' from the beginning of the command
+            cmd = command[5:].strip()
+
+            parts = shlex.split(cmd)
+            sys.stdout.write(" ".join(parts) + "\n")
             continue
 
         elif command.startswith("pwd"):
